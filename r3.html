@@ -1,0 +1,48 @@
+<html lang="en">
+
+<head>  
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+
+	<link rel='stylesheet' href='r3.css'>
+	<script defer src="r3.js"></script>
+</head>
+
+<body>
+    <h1>Rule of Three</h1>
+	<div id="main">
+        <div class="num-line">
+            <span class="switch-line horizontal" id="AB"></span>
+            <p id="p-err" style="display: none;"></p>
+            <div class="input-container">
+                <i class="copy-icon"></i>
+                <input class="num-letter" id="A" type="number" placeholder="A">
+            </div>
+            <span class="switch-line vertical" id="AC"></span>
+            <div class="input-container">
+                <i class="copy-icon"></i>
+                <input class="num-letter" id="B" type="number" placeholder="B">
+            </div>
+            <span class="switch-line vertical" id="BD"></span>
+            <div class="input-container">
+                <i class="copy-icon"></i>
+                <input class="num-letter" id="C" type="number" placeholder="C">
+            </div>
+            <span class="switch-line horizontal" id="CD"></span>
+            <div class="input-container">
+                <i class="copy-icon"></i>
+                <input class="num-letter" id="D" type="number" placeholder="D" value="0" disabled>
+            </div>
+        </div>
+        <p id="p-formula">a = b * c / d</span>
+        <div id="options-div">
+            <button class="btn" id="btn-clear">Clear All</button>
+            <div id="digits">
+                <label for="digits">Decimal Places</label>
+                <input type="number" placeholder="Decimals Places" step="1" min="0" max="20" value="4">
+            </div>
+        </div>
+	</div>
+</body>
+
+</html>

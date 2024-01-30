@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    appearance: none;
+    border: none;
+    border-radius: 0;
+}
+
+a {
+    appearance: none;
+}
+
+:root {
+    --blue: #3c7d90;
+}
+
+body {
+    background: lightcyan;
+    font-size: 16px;
+}
+
+h1{
+    position: absolute;
+    text-align: center;
+    display: block;
+    color: darkred;
+    text-transform: uppercase;
+    top: 2vh;
+    width: 100%;
+    user-select: none;
+}
+
+#main {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%); */
+
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.num-line {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid:
+        "A AB B"   1fr 
+        "AC . BD" 1fr
+        "C CD D"  1fr
+        / 1fr 1fr 1fr;
+}
+
+.input-container:has(>#A) { grid-area: A; }
+.input-container:has(>#B) { grid-area: B; }
+.input-container:has(>#C) { grid-area: C; }
+.input-container:has(>#D) { grid-area: D; }
+#AB{ grid-area: AB; }
+#CD{ grid-area: CD; }
+#AC{ grid-area: AC; }
+#BD{ grid-area: BD; }
+
+.switch-line {
+    background: gray;
+    border-radius: 3px;
+}
+.switch-line:hover {
+    border: 2px solid black;
+}
+.switch-line:active {
+    background: lightgray;
+}
+.switch-line.horizontal {
+    width: 100%;
+    height: 0.66rem;
+}
+.switch-line.vertical {
+    height: 100%;
+    width: 0.66rem;
+}
+
+input[type=number].num-letter {
+    text-align: center;
+    font-size: 1.2rem;
+    border: 2px solid var(--blue);
+    border-radius: 3px;
+
+    width: 10rem;
+    height: 2.2rem;
+}
+/* 
+input[type=number].num-letter:focus {
+    border-color: var(--blue);
+} 
+*/
+input[type=number].num-letter:disabled {
+    background-color: var(--blue);
+    color: white;
+}
+input[type=number].num-letter::-webkit-inner-spin-button,
+input[type=number].num-letter::-webkit-outer-spin-button {
+    /* -webkit-appearance: none; */
+    color: black;
+}
+
+#p-err {
+    color: red;
+    position: absolute;
+    top: 10%;
+    background-color: rgba(169, 169, 169, 0.75);
+    line-height: 1.5rem;
+
+    border-radius: 3px;
+    padding: 5px;
+}
+
+
+.input-container{
+    position: relative;
+}
+.input-container .copy-icon{
+    position: absolute;
+    top: 0.5rem;
+    left: 0.4rem;
+}
+
+.copy-icon {
+    display: block;
+    position: relative;
+    transform: scale(1);
+    width: 0.875rem;
+    height: 1.15rem;
+    border: 2px solid;
+    color: gray;
+}
+.copy-icon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background:
+        linear-gradient(to left, currentColor 5px, transparent 0) no-repeat right top/5px 2px,
+        linear-gradient(to left, currentColor 5px, transparent 0) no-repeat left bottom/ 2px 5px;
+    box-shadow: inset -4px -4px 0 -2px;
+    bottom: -0.33rem;
+    right: -0.33rem;
+    width: 0.875rem;
+    height: 1.15rem;
+}
+.copy-icon:has(+input:disabled) {
+    color: white;
+}
+.copy-icon:hover, .copy-icon:has(+input:disabled):hover {
+    color: black;
+}
+.copy-icon:has(+input:disabled):active {
+    color: white;
+}
+.copy-icon:active {
+    color: var(--blue);
+}
+
+#p-formula{
+    margin-top: 1.5rem;
+    text-transform: lowercase;
+}
+
+#options-div {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 2rem;
+    grid-auto-flow: column;
+    height: 3rem;
+}
+#options-div>* {
+    text-align: center;
+    height: 3rem;
+    width: 8rem;
+}
+
+#digits{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#digits label{
+    font-size: 0.9rem;
+}
+#digits input{
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    border: 2px solid gray;
+}
